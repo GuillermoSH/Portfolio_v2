@@ -4,7 +4,7 @@ const loginForm = document.getElementById("form");
 const loginSpinner = document.getElementById("login-spinner");
 
 updateDateTime();
-setInterval(updateDateTime, 60000);
+setInterval(updateDateTime, 30000);
 
 function toggleLogin(timeout) {
     loginForm.classList.toggle("pointer-events-none");
