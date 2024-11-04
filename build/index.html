@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <title>Portfolio GuillermoSH v2</title>
+</head>
+
+<body>
+    <section id="login" class="flex-center flex-col gap-5 w-screen h-screen backdrop-blur-3xl bg-neutral-500/20">
+        <div
+            class="flex-center rounded-full border-4 border-neutral-400 h-60 aspect-square overflow-hidden bg-slate-900">
+            <img src="./img/personal_photo.png" class="w-full object-contain object-bottom">
+        </div>
+        <h1 class="text-2xl text-white">Guillermo Sicilia Hernández</h1>
+        <div id="form-wrapper" class="relative flex-center">
+            <div id="form" class="flex-center gap-5 flex-col opacity-100">
+                <div
+                    class="flex items-center rounded-md w-72 h-9 bg-neutral-700 border-b-[3px] border-blue-400 p-2 text-white">
+                    <p>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
+                    </p>
+                </div>
+                <button onclick="toggleLogin()"
+                    class="px-4 py-2 bg-neutral-500/60 rounded-md hover:bg-neutral-400/80 duration-200 text-white">Iniciar
+                    sesión</button>
+            </div>
+            <div id="login-spinner" class="absolute z-10 opacity-0 pointer-events-none">
+                <i class="fa fa-circle-notch fa-spin text-3xl text-neutral-300"></i>
+            </div>
+        </div>
+    </section>
+    <section id="desktop" class="hidden relative w-screen h-screen">
+        <nav class="absolute bottom-0 h-12 w-screen bg-slate-500/60 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
+            <button class="h-full aspect-square">
+                <i class="fa fa-gear text-xl text-neutral-300"></i>
+            </button>
+            <div id="nav-icons" class="flex-center gap-2 text-neutral-300 text-sm">
+                <i class="fa fa-wifi"></i>
+                <i class="fa fa-volume-xmark"></i>
+                <i class="fa fa-battery-three-quarters"></i>
+                <div id="dateTime" class="text-end text-xs text-neutral-300 px-5">
+                    <p id="clock" class="mb-1"></p>
+                    <p id="date"></p>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <script src="https://kit.fontawesome.com/528f34854d.js" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
