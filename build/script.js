@@ -1,5 +1,5 @@
 const login = document.getElementById("login");
-const desktop = document.getElementById("desktop");
+const desktop = document.getElementById("desktop-wrapper");
 const loginForm = document.getElementById("form");
 const loginSpinner = document.getElementById("login-spinner");
 const optionsDropdown = document.getElementById("options-dropdown");
@@ -32,12 +32,14 @@ function toggleLogin(timeout) {
     if (timeout) {
         setTimeout(() => {
             login.classList.toggle("hiddenplus");
-            desktop.classList.toggle("hidden")
+            desktop.classList.toggle("hiddenplus")
         }, 3000)
     } else {
         login.classList.toggle("hiddenplus");
-        desktop.classList.toggle("hidden");
+        desktop.classList.toggle("hiddenplus");
     }
+    
+    closeOptionsMenu();
 }
 
 function updateDateTime() {

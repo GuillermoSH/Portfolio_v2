@@ -574,14 +574,6 @@ video {
   left: 0.75rem;
 }
 
-.-z-50 {
-  z-index: -50;
-}
-
-.z-0 {
-  z-index: 0;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -592,10 +584,6 @@ video {
 
 .flex {
   display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .aspect-square {
@@ -638,6 +626,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .items-start {
   align-items: flex-start;
 }
@@ -646,12 +638,20 @@ video {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-between {
   justify-content: space-between;
 }
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-5 {
@@ -875,6 +875,64 @@ body {
 .options-button .fa {
   margin-inline-end: 0.5rem;
   width: 17.5px;
+}
+
+.desktop-wrapper {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-rows: calc(100vh - 48px) 48px;
+}
+
+.desktop {
+  grid-row-start: 1;
+}
+
+.task-bar {
+  grid-row-start: 2;
+}
+
+.desktop-icon {
+  display: flex;
+  height: 6rem;
+  width: 6rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 0.125rem;
+  border-width: 1px;
+  border-color: transparent;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  transition-duration: 200ms;
+}
+
+.desktop-icon:hover {
+  border-color: rgb(245 245 245 / 0.4);
+  background-color: rgb(245 245 245 / 0.2);
+}
+
+.desktop-icon.folder {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity));
+}
+
+.desktop-icon.file {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.desktop-icon p {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.desktop-icon i {
+  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .hover\:bg-neutral-400\/80:hover {

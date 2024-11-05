@@ -32,8 +32,26 @@
             </div>
         </div>
     </section>
-    <section id="desktop" class="hidden relative w-screen h-screen">
-        <nav class="absolute z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
+    <section id="desktop-wrapper" class="desktop-wrapper hiddenplus">
+        <main id="desktop" class="flex flex-col flex-wrap gap-3 p-3">
+            <button class="desktop-icon folder">
+                <i class="fa fa-folder-closed"></i>
+                <p>Proyectos</p>
+            </button>
+            <button class="desktop-icon folder">
+                <i class="fa fa-folder-closed"></i>
+                <p>Herramientas</p>
+            </button>
+            <button class="desktop-icon folder">
+                <i class="fa fa-folder-closed"></i>
+                <p>Experiencia</p>
+            </button>
+            <button class="desktop-icon file">
+                <i class="fa fa-file"></i>
+                <p>Biografía</p>
+            </button>
+        </main>
+        <nav id="task-bar" class="z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
             <button id="options-dropdown-btn" class="h-full aspect-square">
                 <i class="fa fa-gear text-xl text-neutral-300"></i>
             </button>
