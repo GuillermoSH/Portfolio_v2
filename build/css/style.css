@@ -638,10 +638,6 @@ video {
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-between {
   justify-content: space-between;
 }
@@ -881,7 +877,7 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-rows: calc(100vh - 48px) 48px;
+  grid-template-rows: calc(100svh - 48px) 48px;
 }
 
 .desktop {

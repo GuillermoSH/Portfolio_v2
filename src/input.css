@@ -43,7 +43,7 @@ body {
 }
 
 .desktop-wrapper {
-    @apply grid w-screen h-screen grid-rows-[calc(100vh-48px)_48px];
+    @apply grid w-screen h-screen grid-rows-[calc(100svh-48px)_48px];
 }
 
 .desktop {
