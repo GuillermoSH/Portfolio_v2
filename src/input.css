@@ -15,6 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 .flex-center {
@@ -23,4 +24,20 @@ body {
 
 .hiddenplus {
     display: none !important;
+}
+
+#options-dropdown {
+    bottom: -120px;
+}
+
+#options-dropdown.active {
+    bottom: 60px;
+}
+
+.options-button {
+    @apply hover:text-white duration-200;
+}
+
+.options-button .fa {
+    @apply w-[17.5px] me-2;
 }

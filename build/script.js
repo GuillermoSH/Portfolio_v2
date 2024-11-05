@@ -2,9 +2,26 @@ const login = document.getElementById("login");
 const desktop = document.getElementById("desktop");
 const loginForm = document.getElementById("form");
 const loginSpinner = document.getElementById("login-spinner");
+const optionsDropdown = document.getElementById("options-dropdown");
+const optionsDropdownBtn = document.getElementById("options-dropdown-btn");
 
 updateDateTime();
 setInterval(updateDateTime, 30000);
+
+document.addEventListener("DOMContentLoaded", function () {
+    function toggleOptionsMenu() {
+        optionsDropdown.classList.toggle("active");
+    }
+
+    function closeOptionsMenu(event) {
+        if(!optionsDropdownBtn.contains(event.target) && !optionsDropdown.contains(event.target)) {
+            optionsDropdown.classList.remove("active");
+        }
+    }
+
+    optionsDropdownBtn.addEventListener("click", toggleOptionsMenu);
+    document.addEventListener("click", closeOptionsMenu);
+})
 
 function toggleLogin(timeout) {
     loginForm.classList.toggle("pointer-events-none");
