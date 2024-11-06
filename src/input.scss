@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("../img/desktop_background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.flex-center {
+    @apply flex justify-center items-center;
+}
+
+.hiddenplus {
+    display: none !important;
+}
+
+#options-dropdown {
+    bottom: -120px;
+
+    &.active {
+        bottom: 60px;
+    }
+}
+
+.options-button {
+    @apply hover:text-white duration-200 flex items-center;
+
+    & .fa {
+        @apply w-[17.5px] me-2;
+    }
+}
+
+.desktop-wrapper {
+    @apply grid w-screen h-screen grid-rows-[calc(100svh-48px)_48px];
+}
+
+.desktop {
+    @apply row-start-1;
+}
+
+.task-bar {
+    @apply row-start-2;
+}
+
+.desktop-icon {
+    @apply flex items-center justify-center flex-col border-[1px] border-transparent w-24 h-24 rounded-sm text-3xl duration-200 gap-1;
+    @apply hover:bg-neutral-100/20 hover:border-neutral-100/40;
+
+    &.folder {
+        @apply text-amber-300;
+    }
+
+    &.file {
+        @apply text-white;
+    }
+
+    p {
+        @apply text-sm text-white;
+    }
+
+    i {
+        @apply drop-shadow-xl;
+    }
+}
+
+.file-explorer-template {
+    &.maximized {
+        @apply w-full h-full top-0 rounded-none;
+    }
+
+    &.minimized {
+        @apply top-[120%] h-10 w-10;
+    }
+
+    &.closed {
+        top: 120% !important;
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    & .content {
+        scrollbar-color: rgb(115 115 115) rgb(38 38 38);
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            @apply bg-neutral-800 rounded-[50%];
+        }
+
+        &::-webkit-scrollbar-thumb {
+            @apply bg-neutral-500 rounded-[50%] border-2 border-neutral-800;
+        }
+    }
+}

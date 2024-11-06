@@ -9,7 +9,7 @@
     <title>Portfolio GuillermoSH v2</title>
 </head>
 
-<body>
+<body class="flex-center">
     <section id="login" class="flex-center flex-col gap-5 w-screen h-screen backdrop-blur-3xl bg-neutral-500/20">
         <div
             class="flex-center rounded-full border-4 border-neutral-400 h-60 aspect-square overflow-hidden bg-slate-900">
@@ -24,8 +24,9 @@
                     </p>
                 </div>
                 <button onclick="toggleLogin(true)"
-                    class="px-4 py-2 bg-neutral-500/60 rounded-md hover:bg-neutral-400/80 duration-200 text-white">Iniciar
-                    sesión</button>
+                    class="px-4 py-2 bg-neutral-500/60 rounded-md hover:bg-neutral-400/80 duration-200 text-white">
+                    <p data-i18n="login"></p>
+                </button>
             </div>
             <div id="login-spinner" class="absolute z-10 opacity-0 pointer-events-none">
                 <i class="fa fa-circle-notch fa-spin text-3xl text-neutral-300"></i>
@@ -34,24 +35,79 @@
     </section>
     <section id="desktop-wrapper" class="desktop-wrapper hiddenplus">
         <main id="desktop" class="flex flex-col flex-wrap gap-3 p-3">
-            <button class="desktop-icon folder">
+            <button id="projects-folder-btn" class="desktop-icon folder">
                 <i class="fa fa-folder-closed"></i>
-                <p>Proyectos</p>
+                <p data-i18n="projects"></p>
             </button>
-            <button class="desktop-icon folder">
+            <button id="tools-folder-btn" class="desktop-icon folder">
                 <i class="fa fa-folder-closed"></i>
-                <p>Herramientas</p>
+                <p data-i18n="tools"></p>
             </button>
-            <button class="desktop-icon folder">
+            <button id="experience-folder-btn" class="desktop-icon folder">
                 <i class="fa fa-folder-closed"></i>
-                <p>Experiencia</p>
+                <p data-i18n="experience"></p>
             </button>
-            <button class="desktop-icon file">
+            <button id="biography-file-btn" class="desktop-icon file">
                 <i class="fa fa-file"></i>
-                <p>Biografía</p>
+                <p data-i18n="biography"></p>
             </button>
+
+            <div id="projects-folder"
+            class="file-explorer-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-full max-h-full h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
+            <!-- Pestaña superior -->
+            <nav class="grid grid-rows-2 h-20 text-xs">
+                <div class="relative">
+                    <div
+                        class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-60 rounded-ss-md rounded-se-md text-sm">
+                        <div class="flex gap-2">
+                            💻<p data-i18n="projects"></p>
+                        </div>
+                        <div class="flex-center px-3 py-1 text-neutral-500">
+                            <i class="fa fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 left-[265px] text-neutral-500">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="absolute top-0 right-0 flex-center">
+                        <button id="min-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50 text-sm">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button id="max-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50">
+                            <i class="fa-regular fa-square"></i>
+                        </button>
+                        <button id="close-projects-btn" class="px-3 py-1 hover:bg-red-500/80 text-sm">
+                            <i class="fa fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-neutral-700/50 grid grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
+                    <div class="text-sm text-neutral-500 flex-center gap-2 h-full">
+                        <i class="fa fa-arrow-left px-3 py-1"></i>
+                        <i class="fa fa-arrow-right px-3 py-1"></i>
+                        <i class="fa fa-arrow-up px-3 py-1"></i>
+                        <i class="fa fa-rotate-right px-3 py-1"></i>
+                    </div>
+                    <div class="bg-neutral-600/50 rounded-md flex items-center px-2">
+                        <i class="fa fa-house"></i>
+                        <i class="fa fa-angle-right px-5"></i>
+                        <p data-i18n="projects"></p>
+                    </div>
+                    <div class="bg-neutral-600/50 rounded-md flex items-center justify-between px-2 text-neutral-500">
+                        <p data-i18n="explorer search"></p>
+                        <i class="fa fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </nav>
+    
+            <!-- Área principal de contenido -->
+            <main class="content p-5 text-sm overflow-auto max-h-[calc(100%-80px)] flex">
+                <p data-i18n="projects-info" class="h-full"></p>
+            </main>
+        </div>
         </main>
-        <nav id="task-bar" class="z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
+        <nav id="task-bar"
+            class="z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
             <button id="options-dropdown-btn" class="h-full aspect-square">
                 <i class="fa fa-gear text-xl text-neutral-300"></i>
             </button>
@@ -65,25 +121,42 @@
                 </div>
             </div>
         </nav>
-        <div id="options-dropdown" class="absolute duration-200 delay-100 bg-slate-900 left-3 text-slate-400 flex flex-col items-start gap-2 p-3 rounded-md text-sm">
-            <button class="options-button">
+        <div id="options-dropdown"
+            class="absolute duration-200 delay-100 bg-neutral-900 left-3 text-slate-400 flex flex-col items-start gap-2 p-3 rounded-md text-sm">
+            <button id="language-btn" class="relative options-button hover:cursor-pointer">
                 <i class="fa fa-language"></i>
-                Cambiar idioma
+                <div data-i18n="change language"></div>
+                <i class="fa-solid fa-angle-right ms-1 text-xs"></i>
             </button>
+            <div id="language-options"
+                class="absolute w-max bg-neutral-900 rounded-md left-full bottom-[calc(100%-40px)] flex items-start flex-col gap-2 p-2 mx-2 hiddenplus">
+                <button onclick="changeLanguage('es')" class="flex items-center">
+                    <img class="h-2 me-2" src="./img/esp_icon.png" alt="ES icon">
+                    <p data-i18n="spanish"></p>
+                </button>
+                <button onclick="changeLanguage('en')" class="flex items-center">
+                    <img class="h-2 me-2" src="./img/eng_icon.png" alt="EN icon">
+                    <p data-i18n="english"></p>
+                </button>
+            </div>
             <button class="options-button">
                 <i class="fa fa-paintbrush"></i>
-                Personalizar
+                <p data-i18n="customize"></p>
             </button>
             <hr class="border-slate-700 w-full">
             <button class="options-button" onclick="toggleLogin()">
                 <i class="fa fa-user-xmark"></i>
-                Cerrar sesión
+                <p data-i18n="logout"></p>
             </button>
         </div>
     </section>
 
+
+
     <script src="https://kit.fontawesome.com/528f34854d.js" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="https://unpkg.com/i18next@21.6.6/dist/umd/i18next.min.js"></script>
+    <script src="script.js"></script>
+    <script src="translation.js"></script>
 </body>
 
 </html>
