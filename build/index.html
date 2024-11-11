@@ -53,64 +53,70 @@
             </button>
 
             <div id="projects-folder"
-            class="file-explorer-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-full max-h-full h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
-            <!-- Pestaña superior -->
-            <nav class="grid grid-rows-2 h-20 text-xs">
-                <div class="relative">
-                    <div
-                        class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-60 rounded-ss-md rounded-se-md text-sm">
-                        <div class="flex gap-2">
-                            💻<p data-i18n="projects"></p>
+                class="file-explorer-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-full max-h-full h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
+                <!-- Pestaña superior -->
+                <nav class="grid grid-rows-2 h-20 text-xs">
+                    <div class="relative">
+                        <div
+                            class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-60 rounded-ss-md rounded-se-md text-sm">
+                            <div class="flex gap-2">
+                                💻<p data-i18n="projects"></p>
+                            </div>
+                            <div class="flex-center px-3 py-1 text-neutral-500">
+                                <i class="fa fa-xmark"></i>
+                            </div>
                         </div>
-                        <div class="flex-center px-3 py-1 text-neutral-500">
-                            <i class="fa fa-xmark"></i>
+                        <div class="absolute bottom-2 left-[265px] text-neutral-500">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="absolute top-0 right-0 flex-center">
+                            <button id="min-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50 text-sm">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button id="max-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50">
+                                <i class="fa-regular fa-square"></i>
+                            </button>
+                            <button id="close-projects-btn" class="px-3 py-1 hover:bg-red-500/80 text-sm">
+                                <i class="fa fa-xmark"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="absolute bottom-2 left-[265px] text-neutral-500">
-                        <i class="fa fa-plus"></i>
+                    <div class="bg-neutral-700/50 grid grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
+                        <div class="text-sm text-neutral-500 flex-center gap-2 h-full">
+                            <i class="fa fa-arrow-left px-3 py-1"></i>
+                            <i class="fa fa-arrow-right px-3 py-1"></i>
+                            <i class="fa fa-arrow-up px-3 py-1"></i>
+                            <i class="fa fa-rotate-right px-3 py-1"></i>
+                        </div>
+                        <div class="bg-neutral-600/50 rounded-md flex items-center px-2">
+                            <i class="fa fa-house"></i>
+                            <i class="fa fa-angle-right px-5"></i>
+                            <p data-i18n="projects"></p>
+                        </div>
+                        <div
+                            class="bg-neutral-600/50 rounded-md flex items-center justify-between px-2 text-neutral-500">
+                            <p data-i18n="explorer search"></p>
+                            <i class="fa fa-magnifying-glass"></i>
+                        </div>
                     </div>
-                    <div class="absolute top-0 right-0 flex-center">
-                        <button id="min-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50 text-sm">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                        <button id="max-projects-btn" class="px-3 py-1 hover:bg-neutral-700/50">
-                            <i class="fa-regular fa-square"></i>
-                        </button>
-                        <button id="close-projects-btn" class="px-3 py-1 hover:bg-red-500/80 text-sm">
-                            <i class="fa fa-xmark"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-neutral-700/50 grid grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
-                    <div class="text-sm text-neutral-500 flex-center gap-2 h-full">
-                        <i class="fa fa-arrow-left px-3 py-1"></i>
-                        <i class="fa fa-arrow-right px-3 py-1"></i>
-                        <i class="fa fa-arrow-up px-3 py-1"></i>
-                        <i class="fa fa-rotate-right px-3 py-1"></i>
-                    </div>
-                    <div class="bg-neutral-600/50 rounded-md flex items-center px-2">
-                        <i class="fa fa-house"></i>
-                        <i class="fa fa-angle-right px-5"></i>
-                        <p data-i18n="projects"></p>
-                    </div>
-                    <div class="bg-neutral-600/50 rounded-md flex items-center justify-between px-2 text-neutral-500">
-                        <p data-i18n="explorer search"></p>
-                        <i class="fa fa-magnifying-glass"></i>
-                    </div>
-                </div>
-            </nav>
-    
-            <!-- Área principal de contenido -->
-            <main class="content p-5 text-sm overflow-auto max-h-[calc(100%-80px)] flex">
-                <p data-i18n="projects-info" class="h-full"></p>
-            </main>
-        </div>
+                </nav>
+
+                <!-- Área principal de contenido -->
+                <main class="content p-5 text-sm overflow-auto max-h-[calc(100%-80px)] flex">
+                    <p data-i18n="projects-info" class="h-full"></p>
+                </main>
+            </div>
         </main>
         <nav id="task-bar"
             class="z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
-            <button id="options-dropdown-btn" class="h-full aspect-square">
-                <i class="fa fa-gear text-xl text-neutral-300"></i>
-            </button>
+            <div class="flex items-center">
+                <button id="options-dropdown-btn" class="h-12 aspect-square [&>:first-child]:hover:rotate-90">
+                    <i class="fa fa-gear text-xl text-neutral-300 duration-200"></i>
+                </button>
+                <button id="nat-projects" class="nat">
+                    <i class="fa fa-folder-closed"></i>
+                </button>
+            </div>
             <div id="nav-icons" class="flex-center gap-2 text-neutral-300 text-sm">
                 <i class="fa fa-wifi"></i>
                 <i class="fa fa-volume-xmark"></i>

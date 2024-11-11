@@ -32,16 +32,32 @@ const maxBiographyBtn = document.getElementById("max-biography-btn");
 const maxToolsBtn = document.getElementById("max-tools-btn");
 
 const minProjectsBtn = document.getElementById("min-projects-btn");
-console.log(minProjectsBtn);
-console.log(maxProjectsBtn);
 const minExperienceBtn = document.getElementById("min-experience-btn");
 const minBiographyBtn = document.getElementById("min-biography-btn");
 const minToolsBtn = document.getElementById("min-tools-btn");
+
+const natProjects = document.getElementById("nat-projects");
+const natTools = document.getElementById("nat-tools");
+const natExperience = document.getElementById("nat-experience");
+const natBiography = document.getElementById("nat-biography");
 
 updateDateTime();
 setInterval(updateDateTime, 30000);
 
 document.addEventListener("DOMContentLoaded", function () {
+    function watchActiveTemplates() {
+        let templates = document.getElementsByClassName("file-explorer-template");
+
+        Array.from(templates).forEach((template) => {
+            let nat = document.getElementById("nat-" + template.id.split("-")[0]);
+            if (template.classList.contains("active")) {
+                nat.classList.add("active");
+            } else {
+                nat.classList.remove("active");
+            }
+        })
+    }
+
     function toggleOptionsMenu() {
         optionsDropdown.classList.toggle("active");
     }
@@ -64,15 +80,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function isTabActive(element) {
+        let nat = document.getElementById("nat-" + element.id.split("-")[0]);
+        if (element.classList.contains('minimized')) {
+            nat.classList.remove("visible");
+        } else {
+            nat.classList.add("visible");
+        }
+    }
+
+    function toggleNatMenu(event) {
+        event.preventDefault();
+    }
+
     function actionOnFolderOrFile(element, action) {
-        console.log(`Ejecutando ${action} en`, element);
         switch (action) {
             case 'open':
+                element.classList.add('active');
                 element.classList.remove('closed', 'maximized', 'minimized');
+                isTabActive(element);
                 break;
             case 'close':
                 element.classList.add('closed');
-                element.classList.remove('maximized', 'minimized');
+                element.classList.remove('active', 'maximized', 'minimized');
                 break;
             case 'maximized':
                 element.classList.toggle('maximized');
@@ -80,11 +110,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 break;
             case 'minimized':
                 element.classList.add('minimized');
-                element.classList.remove('maximized');
+                isTabActive(element);
+                break;
+            case 'toggle':
+                element.classList.toggle('minimized');
+                isTabActive(element);
                 break;
             default:
-                console.warn(`Acción no reconocida: ${action}`);
-        }        
+                console.warn(`Action not recognized: ${action}`);
+        }
     }
 
     optionsDropdownBtn.addEventListener("click", toggleOptionsMenu);
@@ -110,10 +144,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "minimized"));
     // minToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "minimized"));
 
+    natProjects.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "toggle"));
+    natProjects.addEventListener("contextmenu", toggleNatMenu);
+
 
     document.addEventListener("click", closeOptionsMenu);
     document.addEventListener("click", closeLanguageOptions);
-})
+    document.addEventListener("click", watchActiveTemplates);
+});
 
 function toggleLogin(timeout) {
     loginForm.classList.toggle("pointer-events-none");
