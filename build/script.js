@@ -8,6 +8,7 @@ const optionsDropdownBtn = document.getElementById("options-dropdown-btn");
 const languageBtn = document.getElementById("language-btn");
 const optionsDropdown = document.getElementById("options-dropdown");
 const languageOptions = document.getElementById("language-options");
+const folderOptions = document.getElementById("folder-options");
 
 const explorerTemplate = document.getElementById("explorer-template");
 
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         Array.from(templates).forEach((template) => {
             let nat = document.getElementById("nat-" + template.id.split("-")[0]);
+
             if (template.classList.contains("active")) {
                 nat.classList.add("active");
             } else {
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function isTabActive(element) {
         let nat = document.getElementById("nat-" + element.id.split("-")[0]);
+
         if (element.classList.contains('minimized')) {
             nat.classList.remove("visible");
         } else {
@@ -91,6 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleNatMenu(event) {
         event.preventDefault();
+        folderOptions.classList.toggle("active");
+        closeLanguageOptions();
+        closeNatMenu();
+    }
+
+    function closeNatMenu(event) {
+        if (!natProjects.contains(event.target) && !folderOptions.contains(event.target)) {
+            folderOptions.classList.remove("active");
+        }
+    }
+
+    function changeMaximizeBtn(element) {
+        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-regular");
+        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-square");
+        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-solid");
+        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-minimize");
     }
 
     function actionOnFolderOrFile(element, action) {
@@ -107,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'maximized':
                 element.classList.toggle('maximized');
                 element.classList.remove('minimized');
+                changeMaximizeBtn(element);
                 break;
             case 'minimized':
                 element.classList.add('minimized');
@@ -146,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     natProjects.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "toggle"));
     natProjects.addEventListener("contextmenu", toggleNatMenu);
-
 
     document.addEventListener("click", closeOptionsMenu);
     document.addEventListener("click", closeLanguageOptions);
