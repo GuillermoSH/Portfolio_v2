@@ -602,16 +602,12 @@ video {
   z-index: 10;
 }
 
-.mb-1 {
-  margin-bottom: 0.25rem;
+.mb-\[2px\] {
+  margin-bottom: 2px;
 }
 
 .ms-1 {
   margin-inline-start: 0.25rem;
-}
-
-.mb-\[2px\] {
-  margin-bottom: 2px;
 }
 
 .flex {
@@ -904,10 +900,6 @@ video {
   padding-inline-end: 0.75rem;
 }
 
-.ps-5 {
-  padding-inline-start: 1.25rem;
-}
-
 .ps-2 {
   padding-inline-start: 0.5rem;
 }
@@ -1004,7 +996,7 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-rows: calc(100vh - 40px) 40px;
+  grid-template-rows: calc(100svh - 40px) 40px;
 }
 
 @media (min-width: 768px) {
@@ -1397,36 +1389,12 @@ body {
     margin-bottom: 0.25rem;
   }
 
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:grid {
-    display: grid;
-  }
-
   .md\:h-12 {
     height: 3rem;
   }
 
   .md\:w-60 {
     width: 15rem;
-  }
-
-  .md\:w-full {
-    width: 100%;
-  }
-
-  .md\:w-\[200px\] {
-    width: 200px;
-  }
-
-  .md\:w-auto {
-    width: auto;
-  }
-
-  .md\:grid-cols-\[max-content_1fr_200px\] {
-    grid-template-columns: max-content 1fr 200px;
   }
 
   .md\:gap-2 {
@@ -1437,22 +1405,18 @@ body {
     padding-inline-end: 1.25rem;
   }
 
-  .md\:ps-2 {
-    padding-inline-start: 0.5rem;
-  }
-
   .md\:ps-5 {
     padding-inline-start: 1.25rem;
-  }
-
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
