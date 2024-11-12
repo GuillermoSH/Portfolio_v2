@@ -82,20 +82,20 @@
                         </div>
                     </div>
                     <div
-                        class="bg-neutral-700/50 flex justify-between md:grid md:grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
+                        class="bg-neutral-700/50 flex justify-between sm:grid sm:grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
                         <div class="text-sm text-neutral-500 flex-center gap-0 md:gap-2 h-full">
                             <i class="fa fa-arrow-left px-3 py-1"></i>
                             <i class="fa fa-arrow-right px-3 py-1"></i>
                             <i class="fa fa-arrow-up px-3 py-1"></i>
                             <i class="fa fa-rotate-right px-3 py-1"></i>
                         </div>
-                        <div class="bg-neutral-600/50 rounded-md hidden md:flex items-center px-2">
+                        <div class="bg-neutral-600/50 rounded-md hidden sm:flex items-center px-2">
                             <i class="fa fa-house"></i>
                             <i class="fa fa-angle-right px-5"></i>
                             <p data-i18n="projects"></p>
                         </div>
                         <div
-                            class="bg-neutral-600/50 rounded-md w-[150px] flex items-center justify-between px-2 text-neutral-500">
+                            class="bg-neutral-600/50 rounded-md w-[150px] sm:w-auto flex items-center justify-between px-2 text-neutral-500">
                             <p data-i18n="explorer search"></p>
                             <i class="fa fa-magnifying-glass"></i>
                         </div>
@@ -108,22 +108,21 @@
                 </main>
             </div>
         </main>
-        <nav id="task-bar"
-            class="z-10 bottom-0 h-12 w-screen bg-slate-600/70 backdrop-blur-md flex items-center justify-between border-t-[0.5px] border-neutral-500">
+        <nav id="task-bar">
             <div class="flex items-center">
-                <button id="options-dropdown-btn" class="h-12 aspect-square [&>:first-child]:hover:rotate-90">
-                    <i class="fa fa-gear text-xl text-neutral-300 duration-200"></i>
+                <button id="options-dropdown-btn" class="h-10 md:h-12 aspect-square [&>:first-child]:hover:rotate-90">
+                    <i class="fa fa-gear text-base md:text-xl text-neutral-300 duration-200"></i>
                 </button>
                 <button id="nat-projects" class="nat">
                     <i class="fa fa-folder-closed"></i>
                 </button>
             </div>
-            <div id="nav-icons" class="flex-center gap-2 text-neutral-300 text-sm">
+            <div id="nav-icons" class="flex-center gap-2 text-neutral-300 text-xs md:text-sm">
                 <i class="fa fa-wifi"></i>
                 <i class="fa fa-volume-xmark"></i>
                 <i class="fa fa-battery-three-quarters"></i>
-                <div id="dateTime" class="text-end text-xs text-neutral-300 px-5">
-                    <p id="clock" class="mb-1"></p>
+                <div id="dateTime" class="text-end text-xs text-neutral-300 ps-2 pe-3 md:pe-5 md:ps-5">
+                    <p id="clock" class="mb-[2px] md:mb-1"></p>
                     <p id="date"></p>
                 </div>
             </div>
@@ -134,14 +133,13 @@
                 <div data-i18n="change language"></div>
                 <i class="fa-solid fa-angle-right ms-1 text-xs"></i>
             </button>
-            <div id="language-options"
-                class="absolute w-max bg-neutral-900 rounded-md left-full bottom-[calc(100%-40px)] flex items-start flex-col gap-2 p-2 mx-2 hiddenplus">
-                <button onclick="changeLanguage('es')" class="flex items-center">
-                    <img class="h-2 me-2" src="./img/esp_icon.png" alt="ES icon">
+            <div id="language-options" class="hiddenplus">
+                <button onclick="changeLanguage('es')">
+                    <img src="./img/esp_icon.png" alt="ES icon">
                     <p data-i18n="spanish"></p>
                 </button>
-                <button onclick="changeLanguage('en')" class="flex items-center">
-                    <img class="h-2 me-2" src="./img/eng_icon.png" alt="EN icon">
+                <button onclick="changeLanguage('en')">
+                    <img src="./img/eng_icon.png" alt="EN icon">
                     <p data-i18n="english"></p>
                 </button>
             </div>
