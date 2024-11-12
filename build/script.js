@@ -199,3 +199,10 @@ function updateDateTime() {
     document.getElementById("clock").textContent = formattedTime;
     document.getElementById("date").textContent = formattedDate;
 }
+
+function adjustVH() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+
+window.addEventListener('resize', adjustVH);
+window.addEventListener('load', adjustVH);
