@@ -27,7 +27,7 @@ body {
 }
 
 .desktop-wrapper {
-    @apply grid w-screen h-screen grid-rows-[calc(100svh-40px)_40px] md:grid-rows-[calc(100vh-48px)_48px];
+    @apply grid w-screen h-screen grid-rows-[calc(100%-40px)_40px] md:grid-rows-[calc(100vh-48px)_48px];
 }
 
 .desktop {
