@@ -119,8 +119,61 @@ body {
     }
 }
 
+.office-file-template {
+    &.maximized {
+        @apply w-full h-full top-0 rounded-none max-h-full max-w-full;
+    }
+
+    &.minimized {
+        @apply top-[120%] h-10 w-10;
+    }
+
+    &.closed {
+        top: 120% !important;
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    & .content {
+        scrollbar-color: rgb(115 115 115) rgb(38 38 38);
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            @apply bg-neutral-800 rounded-[50%];
+        }
+
+        &::-webkit-scrollbar-thumb {
+            @apply bg-neutral-500 rounded-[50%] border-2 border-neutral-800;
+        }
+
+        & .title1 {
+            @apply my-2 font-extrabold text-xl;
+        }
+        & .title2 {
+            @apply my-2 font-bold text-lg;
+        }
+        & .title3 {
+            @apply font-semibold;
+        }
+        & .normal-text {
+            @apply my-2;
+        }
+    }
+}
+
 .nat {
-    @apply text-amber-300 hidden items-center justify-center flex-col w-8 md:w-10 aspect-square rounded-md text-base md:text-xl duration-200 relative hover:bg-neutral-100/10;
+    @apply hidden items-center justify-center flex-col w-8 md:w-10 aspect-square rounded-md text-base md:text-xl duration-200 relative hover:bg-neutral-100/10;
+
+    &.folder {
+        @apply text-amber-300;
+    }
+    
+    &.file {
+        @apply text-white;
+    }
 
     &.active {
         @apply flex;

@@ -47,9 +47,11 @@ setInterval(updateDateTime, 30000);
 
 document.addEventListener("DOMContentLoaded", function () {
     function watchActiveTemplates() {
-        let templates = document.getElementsByClassName("file-explorer-template");
+        let folderTemplates = Array.from(document.getElementsByClassName("file-explorer-template"));
+        let fileTemplates = Array.from(document.getElementsByClassName("office-file-template"));
+        let templates = folderTemplates.concat(fileTemplates);
 
-        Array.from(templates).forEach((template) => {
+        templates.forEach((template) => {
             let nat = document.getElementById("nat-" + template.id.split("-")[0]);
 
             if (template.classList.contains("active")) {
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 nat.classList.remove("active");
             }
-        })
+        });
     }
 
     function toggleOptionsMenu() {
@@ -92,24 +94,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function toggleNatMenu(event) {
-        event.preventDefault();
-        folderOptions.classList.toggle("active");
-        closeLanguageOptions();
-        closeNatMenu();
-    }
-
-    function closeNatMenu(event) {
-        if (!natProjects.contains(event.target) && !folderOptions.contains(event.target)) {
-            folderOptions.classList.remove("active");
-        }
-    }
-
     function changeMaximizeBtn(element) {
-        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-regular");
-        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-square");
-        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-solid");
-        element.getElementsByClassName("maximize-btn")[0].classList.toggle("fa-minimize");
+        const maxBtn = element.getElementsByClassName("maximize-btn")[0];
+        if (maxBtn.classList.contains("fa-square")) {
+            maxBtn.classList.remove("fa-regular");
+            maxBtn.classList.remove("fa-square");
+            maxBtn.classList.add("fa-solid");
+            maxBtn.classList.add("fa-minimize");
+        } else {
+            maxBtn.classList.add("fa-regular");
+            maxBtn.classList.add("fa-square");
+            maxBtn.classList.remove("fa-solid");
+            maxBtn.classList.remove("fa-minimize");
+        }
     }
 
     function actionOnFolderOrFile(element, action) {
@@ -122,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'close':
                 element.classList.add('closed');
                 element.classList.remove('active', 'maximized', 'minimized');
+                changeMaximizeBtn(element);
                 break;
             case 'maximized':
                 element.classList.toggle('maximized');
@@ -152,20 +150,22 @@ document.addEventListener("DOMContentLoaded", function () {
     closeProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "close"));
     // closeToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "close"));
     // closeExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "close"));
-    // closeBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "close"));
+    closeBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "close"));
 
     maxProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "maximized"));
     // maxExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "maximized"));
-    // maxBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "maximized"));
+    maxBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "maximized"));
     // maxToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "maximized"));
 
     minProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "minimized"));
     // minExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "minimized"));
-    // minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "minimized"));
+    minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "minimized"));
     // minToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "minimized"));
 
     natProjects.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "toggle"));
-    natProjects.addEventListener("contextmenu", toggleNatMenu);
+    natTools.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "toggle"));
+    natExperience.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "toggle"));
+    natBiography.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "toggle"));
 
     document.addEventListener("click", closeOptionsMenu);
     document.addEventListener("click", closeLanguageOptions);
@@ -199,10 +199,3 @@ function updateDateTime() {
     document.getElementById("clock").textContent = formattedTime;
     document.getElementById("date").textContent = formattedDate;
 }
-
-function adjustVH() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-}
-
-window.addEventListener('resize', adjustVH);
-window.addEventListener('load', adjustVH);
