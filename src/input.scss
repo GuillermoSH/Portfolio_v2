@@ -10,7 +10,7 @@
 }
 
 body {
-    background: url("../img/desktop_background.webp");
+    background: url("../assets/img/desktop_background.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -152,15 +152,36 @@ body {
         & .title1 {
             @apply my-2 font-extrabold text-xl;
         }
+
         & .title2 {
             @apply my-2 font-bold text-lg;
         }
+
         & .title3 {
             @apply font-semibold;
         }
+
         & .normal-text {
             @apply my-2;
         }
+
+        & .certs-wrapper {
+            @apply flex gap-5;
+
+            .cert-link {
+                @apply h-32 aspect-square bg-transparent border border-transparent flex flex-col justify-center items-center relative duration-300 rounded-md 
+                [&>i]:hover:opacity-0 [&>span]:hover:bottom-1/2 [&>span]:hover:text-base [&>span]:hover:translate-y-1/2 [&>span]:hover:font-bold hover:border-neutral-500/50 hover:bg-neutral-500/30;
+
+                i {
+                    @apply text-6xl duration-300;
+                }
+
+                span {
+                    @apply absolute bottom-2 text-xs duration-300 text-center;
+                }
+            }
+        }
+
     }
 }
 
@@ -170,7 +191,7 @@ body {
     &.folder {
         @apply text-amber-300;
     }
-    
+
     &.file {
         @apply text-white;
     }

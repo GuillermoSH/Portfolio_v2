@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon" />
     <title>Portfolio GuillermoSH v2</title>
 </head>
 
@@ -13,7 +13,7 @@
     <section id="login" class="flex-center flex-col gap-5 w-screen h-screen backdrop-blur-3xl bg-neutral-500/20">
         <div
             class="flex-center rounded-full border-4 border-neutral-400 h-60 aspect-square overflow-hidden bg-slate-900">
-            <img src="./img/personal_photo.png" class="w-full object-contain object-bottom" alt="Guillermo Sicilia pic">
+            <img src="./assets/img/personal_photo.png" class="w-full object-contain object-bottom" alt="Guillermo Sicilia pic">
         </div>
         <h1 class="text-2xl text-white">Guillermo Sicilia Hernández</h1>
         <div id="form-wrapper" class="relative flex-center">
@@ -55,7 +55,7 @@
             <div id="projects-folder"
                 class="file-explorer-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-[95%] max-h-[95%] h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
                 <!-- Pestaña superior -->
-                <nav class="grid grid-rows-2 h-20 text-xs">
+                <nav class="grid grid-rows-2 h-20 text-xs" aria-label="nav">
                     <div class="relative">
                         <div
                             class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-44 md:w-60 rounded-ss-md rounded-se-md text-sm">
@@ -111,7 +111,7 @@
             <div id="biography-file"
                 class="office-file-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-[95%] max-h-[95%] h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
                 <!-- Pestaña superior -->
-                <nav class="grid grid-rows-2 h-20 text-xs">
+                <nav class="grid grid-rows-2 h-20 text-xs" aria-label="nav">
                     <div class="relative">
                         <div
                             class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-44 md:w-60 rounded-ss-md rounded-se-md text-sm">
@@ -163,11 +163,46 @@
                     <h1 data-i18n="biography" class="title1"></h1>
                     <h2 data-i18n="biography-info.title" class="title2"></h2>
                     <p data-i18n="biography-info.content" class="normal-text"></p>
-                    <h2 data-i18n="biography-info.skills.hardskills.title" class="title2"></h2>
+                    <div class="grid grid-cols-2">
+                        <div>
+                            <h2 data-i18n="biography-info.skills.hardskills.title" class="title2"></h2>
+                            <ul class="normal-text list-disc list-inside">
+                                <li data-i18n="biography-info.skills.hardskills.skill1"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill2"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill3"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill4"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill5"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill6"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill7"></li>
+                                <li data-i18n="biography-info.skills.hardskills.skill8"></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 data-i18n="biography-info.skills.softskills.title" class="title2"></h2>
+                            <ul class="normal-text list-disc list-inside">
+                                <li data-i18n="biography-info.skills.softskills.skill1"></li>
+                                <li data-i18n="biography-info.skills.softskills.skill2"></li>
+                                <li data-i18n="biography-info.skills.softskills.skill3"></li>
+                                <li data-i18n="biography-info.skills.softskills.skill4"></li>
+                                <li data-i18n="biography-info.skills.softskills.skill5"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 data-i18n="certifications" class="title2"></h2>
+                    <div class="certs-wrapper">
+                        <a class="cert-link" href="./assets/courses_certificates/certificado_AWS_cloud_practitioner.pdf" target="_blank">
+                            <i class="fa-solid fa-file-pdf text-red-600"></i>
+                            <span>AWS Cloud Practitioner</span>
+                        </a>
+                        <a class="cert-link" href="./assets/courses_certificates/speexx_B2.1_certificado.pdf" target="_blank">
+                            <i class="fa-solid fa-file-pdf text-red-600"></i>
+                            <span>Speexx B2.1</span>
+                        </a>
+                    </div>
                 </main>
             </div>
         </main>
-        <nav id="task-bar">
+        <nav id="task-bar" role="navigation" aria-labelledby="taskbarmenu">
             <div class="flex items-center">
                 <button id="options-dropdown-btn" class="h-10 md:h-12 aspect-square [&>:first-child]:hover:rotate-90">
                     <i class="fa fa-gear text-base md:text-xl text-neutral-300 duration-200"></i>
@@ -203,11 +238,11 @@
             </button>
             <div id="language-options" class="hiddenplus">
                 <button onclick="changeLanguage('es')">
-                    <img src="./img/esp_icon.png" alt="ES icon">
+                    <img src="./assets/img/esp_icon.png" alt="ES icon">
                     <p data-i18n="spanish"></p>
                 </button>
                 <button onclick="changeLanguage('en')">
-                    <img src="./img/eng_icon.png" alt="EN icon">
+                    <img src="./assets/img/eng_icon.png" alt="EN icon">
                     <p data-i18n="english"></p>
                 </button>
             </div>

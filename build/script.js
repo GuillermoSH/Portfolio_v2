@@ -85,13 +85,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function isTabActive(element) {
-        let nat = document.getElementById("nat-" + element.id.split("-")[0]);
+        const nat = document.getElementById("nat-" + element.id.split("-")[0]);
 
         if (element.classList.contains('minimized')) {
             nat.classList.remove("visible");
         } else {
             nat.classList.add("visible");
         }
+    }
+
+    function closeAllTabsBut(element) {
+        let folderTemplates = Array.from(document.getElementsByClassName("file-explorer-template"));
+        let fileTemplates = Array.from(document.getElementsByClassName("office-file-template"));
+        let tabs = folderTemplates.concat(fileTemplates);
+
+        tabs.forEach((tab) => {
+            if (tab != element) {
+                tab.classList.remove("active");
+                tab.classList.add("closed");
+            }
+        })
     }
 
     function changeMaximizeBtn(element) {
@@ -114,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'open':
                 element.classList.add('active');
                 element.classList.remove('closed', 'maximized', 'minimized');
+                closeAllTabsBut(element);
                 isTabActive(element);
                 break;
             case 'close':
