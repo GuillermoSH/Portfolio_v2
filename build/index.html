@@ -47,13 +47,13 @@
                 <i class="fa fa-folder-closed"></i>
                 <p data-i18n="experience"></p>
             </button>
-            <button id="biography-file-btn" class="desktop-icon file">
-                <i class="fa fa-file"></i>
+            <button id="biography-folder-btn" class="desktop-icon folder">
+                <i class="fa fa-folder-closed"></i>
                 <p data-i18n="biography"></p>
             </button>
 
             <div id="projects-folder"
-                class="file-explorer-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-[95%] max-h-[95%] h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
+                class="file-explorer-template closed">
                 <!-- Pestaña superior -->
                 <nav class="grid grid-rows-2 h-20 text-xs" aria-label="nav">
                     <div class="relative">
@@ -103,13 +103,33 @@
                 </nav>
 
                 <!-- Área principal de contenido -->
-                <main class="content p-5 text-sm overflow-auto max-h-[calc(100%-80px)] flex">
-                    <p data-i18n="projects-info" class="h-full"></p>
+                <main class="content">
+                    <h1 data-i18n="projects-info.title" class="title1"></h1>
+                    <p data-i18n="projects-info.introduction" class="normal-text"></p>
+                    <h2 data-i18n="projects-info.projects.title" class="title2"></h2>
+                    <div class="projects-wrapper">
+                        <a class="project-card" href="https://github.com/GuillermoSH/CVOrotava-back" target="_blank">
+                            <i class="fa-solid fa-volleyball text-indigo-500"></i>
+                            <span data-i18n="projects-info.projects.project1"></span>
+                        </a>
+                        <a class="project-card" href="https://github.com/GuillermoSH/AppAlign" target="_blank">
+                            <i class="fa-solid fa-qrcode text-neutral-400"></i>
+                            <span data-i18n="projects-info.projects.project2"></span>
+                        </a>
+                        <a class="project-card" href="https://github.com/GuillermoSH/Portfolio" target="_blank">
+                            <i class="fa-solid fa-user-tie text-amber-300"></i>
+                            <span data-i18n="projects-info.projects.project3"></span>
+                        </a>
+                        <a class="project-card" href="https://github.com/GuillermoSH/Portfolio_v2" target="_blank">
+                            <i class="fa-brands fa-windows text-blue-400"></i>
+                            <span data-i18n="projects-info.projects.project4"></span>
+                        </a>
+                    </div>
                 </main>
             </div>
 
-            <div id="biography-file"
-                class="office-file-template duration-200 justify-self-center self-center absolute bg-neutral-900 max-w-[95%] max-h-[95%] h-[600px] w-[1000px] top-5 rounded-lg border-[1px] border-neutral-400/40 overflow-hidden text-white closed">
+            <div id="biography-folder"
+                class="file-explorer-template closed">
                 <!-- Pestaña superior -->
                 <nav class="grid grid-rows-2 h-20 text-xs" aria-label="nav">
                     <div class="relative">
@@ -159,10 +179,10 @@
                 </nav>
 
                 <!-- Área principal de contenido -->
-                <main class="content p-5 text-sm overflow-auto max-h-[calc(100%-80px)] flex flex-col">
+                <main class="content">
                     <h1 data-i18n="biography" class="title1"></h1>
                     <h2 data-i18n="biography-info.title" class="title2"></h2>
-                    <p data-i18n="biography-info.content" class="normal-text"></p>
+                    <p data-i18n="biography-info.introduction" class="normal-text"></p>
                     <div class="grid grid-cols-2">
                         <div>
                             <h2 data-i18n="biography-info.skills.hardskills.title" class="title2"></h2>
@@ -201,6 +221,90 @@
                     </div>
                 </main>
             </div>
+
+            <div id="tools-folder"
+                class="file-explorer-template closed">
+                <!-- Pestaña superior -->
+                <nav class="grid grid-rows-2 h-20 text-xs" aria-label="nav">
+                    <div class="relative">
+                        <div
+                            class="absolute flex items-center px-2 justify-between bottom-0 left-2 h-4/5 bg-neutral-700/50 w-44 md:w-60 rounded-ss-md rounded-se-md text-sm">
+                            <div class="flex gap-2">
+                                🛠️<p data-i18n="tools"></p>
+                            </div>
+                            <div class="flex-center px-3 py-1 text-neutral-500">
+                                <i class="fa fa-xmark"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-2 left-[201px] md:left-[265px] text-neutral-500">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="absolute top-0 right-0 flex-center">
+                            <button id="min-tools-btn" class="px-3 py-1 hover:bg-neutral-700/50 text-sm">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button id="max-tools-btn" class="px-3 py-1 hover:bg-neutral-700/50">
+                                <i class="maximize-btn fa-regular fa-square"></i>
+                            </button>
+                            <button id="close-tools-btn" class="px-3 py-1 hover:bg-red-500/80 text-sm">
+                                <i class="fa fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-neutral-700/50 flex justify-between sm:grid sm:grid-cols-[max-content_1fr_200px] p-2 gap-2 pointer-events-none">
+                        <div class="text-sm text-neutral-500 flex-center gap-0 md:gap-2 h-full">
+                            <i class="fa fa-arrow-left px-3 py-1"></i>
+                            <i class="fa fa-arrow-right px-3 py-1"></i>
+                            <i class="fa fa-arrow-up px-3 py-1"></i>
+                            <i class="fa fa-rotate-right px-3 py-1"></i>
+                        </div>
+                        <div class="bg-neutral-600/50 rounded-md hidden sm:flex items-center px-2">
+                            <i class="fa fa-house"></i>
+                            <i class="fa fa-angle-right px-5"></i>
+                            <p data-i18n="tools"></p>
+                        </div>
+                        <div
+                            class="bg-neutral-600/50 rounded-md w-[150px] sm:w-auto flex items-center justify-between px-2 text-neutral-500">
+                            <p data-i18n="explorer search"></p>
+                            <i class="fa fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Área principal de contenido -->
+                <main class="content">
+                    <h1 data-i18n="tools" class="title1"></h1>
+                    <p data-i18n="tools-info.introduction" class="normal-text"></p>
+                    <h2 data-i18n="tools-info.tools.title" class="title2"></h2>
+                    <div class="tools-wrapper">
+                        <a class="tool-card" href="https://resend.com/" target="_blank">
+                            <img src="./assets/img/tools-previews/resend.png" alt="">
+                            <span data-i18n="tools-info.tools.tool1"></span>
+                        </a>
+                        <a class="tool-card" href="https://jonsuh.com/hamburgers/" target="_blank">
+                            <img src="./assets/img/tools-previews/hamburguers.png" alt="">
+                            <span data-i18n="tools-info.tools.tool2"></span>
+                        </a>
+                        <a class="tool-card" href="https://logodiffusion.com/" target="_blank">
+                            <img src="./assets/img/tools-previews/logo_diffusion.png" alt="">
+                            <span data-i18n="tools-info.tools.tool3"></span>
+                        </a>
+                        <a class="tool-card" href="https://omatsuri.app/" target="_blank">
+                            <img src="./assets/img/tools-previews/omatsuri.png" alt="">
+                            <span data-i18n="tools-info.tools.tool4"></span>
+                        </a>
+                        <a class="tool-card" href="https://overapi.com/" target="_blank">
+                            <img src="./assets/img/tools-previews/overapi.png" alt="">
+                            <span data-i18n="tools-info.tools.tool5"></span>
+                        </a>
+                        <a class="tool-card" href="https://zealdocs.org/" target="_blank">
+                            <img src="./assets/img/tools-previews/zealdocs.png" alt="">
+                            <span data-i18n="tools-info.tools.tool6"></span>
+                        </a>
+                    </div>
+                </main>
+            </div>
         </main>
         <nav id="task-bar" role="navigation" aria-labelledby="taskbarmenu">
             <div class="flex items-center">
@@ -216,8 +320,8 @@
                 <button id="nat-experience" class="nat folder">
                     <i class="fa fa-folder-closed"></i>
                 </button>
-                <button id="nat-biography" class="nat file">
-                    <i class="fa fa-file"></i>
+                <button id="nat-biography" class="nat folder">
+                    <i class="fa fa-folder-closed"></i>
                 </button>
             </div>
             <div id="nav-icons" class="flex-center gap-2 text-neutral-300 text-xs md:text-sm">

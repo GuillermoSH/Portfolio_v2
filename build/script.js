@@ -15,12 +15,12 @@ const explorerTemplate = document.getElementById("explorer-template");
 const projectsFolder = document.getElementById("projects-folder");
 const experienceFolder = document.getElementById("experience-folder");
 const toolsFolder = document.getElementById("tools-folder");
-const biographyFile = document.getElementById("biography-file");
+const biographyFolderBtn = document.getElementById("biography-folder");
 
 const projectsFolderBtn = document.getElementById("projects-folder-btn");
 const toolsFolderBtn = document.getElementById("tools-folder-btn");
 const experienceFolderBtn = document.getElementById("experience-folder-btn");
-const biographyFileBtn = document.getElementById("biography-file-btn");
+const biographyFolderBtnBtn = document.getElementById("biography-folder-btn");
 
 const closeProjectsBtn = document.getElementById("close-projects-btn");
 const closeExperienceBtn = document.getElementById("close-experience-btn");
@@ -48,10 +48,8 @@ setInterval(updateDateTime, 30000);
 document.addEventListener("DOMContentLoaded", function () {
     function watchActiveTemplates() {
         let folderTemplates = Array.from(document.getElementsByClassName("file-explorer-template"));
-        let fileTemplates = Array.from(document.getElementsByClassName("office-file-template"));
-        let templates = folderTemplates.concat(fileTemplates);
 
-        templates.forEach((template) => {
+        folderTemplates.forEach((template) => {
             let nat = document.getElementById("nat-" + template.id.split("-")[0]);
 
             if (template.classList.contains("active")) {
@@ -96,10 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function closeAllTabsBut(element) {
         let folderTemplates = Array.from(document.getElementsByClassName("file-explorer-template"));
-        let fileTemplates = Array.from(document.getElementsByClassName("office-file-template"));
-        let tabs = folderTemplates.concat(fileTemplates);
 
-        tabs.forEach((tab) => {
+        folderTemplates.forEach((tab) => {
             if (tab != element) {
                 tab.classList.remove("active");
                 tab.classList.add("closed");
@@ -107,18 +103,18 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    function changeMaximizeBtn(element) {
+    function changeMaximizeBtn(element, action) {
         const maxBtn = element.getElementsByClassName("maximize-btn")[0];
-        if (maxBtn.classList.contains("fa-square")) {
-            maxBtn.classList.remove("fa-regular");
-            maxBtn.classList.remove("fa-square");
-            maxBtn.classList.add("fa-solid");
-            maxBtn.classList.add("fa-minimize");
-        } else {
+        if (maxBtn.classList.contains("fa-minimize")) {
             maxBtn.classList.add("fa-regular");
             maxBtn.classList.add("fa-square");
             maxBtn.classList.remove("fa-solid");
             maxBtn.classList.remove("fa-minimize");
+        } else if (maxBtn.classList.contains("fa-square") && action != "close") {
+            maxBtn.classList.remove("fa-regular");
+            maxBtn.classList.remove("fa-square");
+            maxBtn.classList.add("fa-solid");
+            maxBtn.classList.add("fa-minimize");
         }
     }
 
@@ -133,12 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
             case 'close':
                 element.classList.add('closed');
                 element.classList.remove('active', 'maximized', 'minimized');
-                changeMaximizeBtn(element);
+                changeMaximizeBtn(element, "close");
                 break;
             case 'maximized':
                 element.classList.toggle('maximized');
                 element.classList.remove('minimized');
-                changeMaximizeBtn(element);
+                changeMaximizeBtn(element, "maximized");
                 break;
             case 'minimized':
                 element.classList.add('minimized');
@@ -159,27 +155,27 @@ document.addEventListener("DOMContentLoaded", function () {
     projectsFolderBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "open"));
     toolsFolderBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "open"));
     experienceFolderBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "open"));
-    biographyFileBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "open"));
+    biographyFolderBtnBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "open"));
 
     closeProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "close"));
-    // closeToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "close"));
+    closeToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "close"));
     // closeExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "close"));
-    closeBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "close"));
+    closeBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "close"));
 
     maxProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "maximized"));
     // maxExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "maximized"));
-    maxBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "maximized"));
-    // maxToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "maximized"));
+    maxBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "maximized"));
+    maxToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "maximized"));
 
     minProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "minimized"));
     // minExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "minimized"));
-    minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "minimized"));
-    // minToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "minimized"));
+    minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "minimized"));
+    minToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "minimized"));
 
     natProjects.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "toggle"));
     natTools.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "toggle"));
     natExperience.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "toggle"));
-    natBiography.addEventListener("click", () => actionOnFolderOrFile(biographyFile, "toggle"));
+    natBiography.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "toggle"));
 
     document.addEventListener("click", closeOptionsMenu);
     document.addEventListener("click", closeLanguageOptions);
