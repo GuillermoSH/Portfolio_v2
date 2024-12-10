@@ -121,19 +121,19 @@ body {
         }
 
         & .title1 {
-            @apply my-2 font-extrabold text-xl;
+            @apply mt-3 mb-1 font-extrabold text-xl;
         }
 
         & .title2 {
-            @apply my-2 font-bold text-lg;
+            @apply mt-2 mb-1 font-bold text-lg;
         }
 
         & .title3 {
-            @apply font-semibold;
+            @apply font-bold my-1;
         }
 
         & .normal-text {
-            @apply my-2;
+            @apply mb-2;
         }
 
         & .certs-wrapper {

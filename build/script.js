@@ -159,16 +159,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "close"));
     closeToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "close"));
-    // closeExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "close"));
+    closeExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "close"));
     closeBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "close"));
 
     maxProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "maximized"));
-    // maxExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "maximized"));
+    maxExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "maximized"));
     maxBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "maximized"));
     maxToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "maximized"));
 
     minProjectsBtn.addEventListener("click", () => actionOnFolderOrFile(projectsFolder, "minimized"));
-    // minExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "minimized"));
+    minExperienceBtn.addEventListener("click", () => actionOnFolderOrFile(experienceFolder, "minimized"));
     minBiographyBtn.addEventListener("click", () => actionOnFolderOrFile(biographyFolderBtn, "minimized"));
     minToolsBtn.addEventListener("click", () => actionOnFolderOrFile(toolsFolder, "minimized"));
 

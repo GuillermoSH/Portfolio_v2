@@ -868,6 +868,14 @@ video {
   line-height: 1rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 .text-amber-300 {
   --tw-text-opacity: 1;
   color: rgb(252 211 77 / var(--tw-text-opacity, 1));
@@ -876,6 +884,11 @@ video {
 .text-blue-400 {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
 
 .text-indigo-500 {
@@ -896,6 +909,11 @@ video {
 .text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity, 1));
+}
+
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
 }
 
 .text-red-600 {
@@ -1258,8 +1276,10 @@ body {
       background-color: rgb(115 115 115 / var(--tw-bg-opacity, 1));
     }
     & .title1 {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    & .title1 {
+      margin-bottom: 0.25rem;
     }
     & .title1 {
       font-size: 1.25rem;
@@ -1270,7 +1290,9 @@ body {
     }
     & .title2 {
       margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
+    }
+    & .title2 {
+      margin-bottom: 0.25rem;
     }
     & .title2 {
       font-size: 1.125rem;
@@ -1280,10 +1302,13 @@ body {
       font-weight: 700;
     }
     & .title3 {
-      font-weight: 600;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    & .title3 {
+      font-weight: 700;
     }
     & .normal-text {
-      margin-top: 0.5rem;
       margin-bottom: 0.5rem;
     }
     & .certs-wrapper {

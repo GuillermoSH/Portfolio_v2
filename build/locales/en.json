@@ -12,6 +12,7 @@
     "english": "English",
     "spanish": "Spanish",
     "explorer search": "Search in Home",
+    "internal-projects": "Internal Projects",
     "close_all_windows": "Close all windows",
     "projects-info": {
         "title": "Projects",
@@ -28,6 +29,36 @@
             "project8": "",
             "project9": "",
             "project10": ""
+        }
+    },
+    "experience-info": {
+        "title": "Experience",
+        "introduction": "I have experience in software development acquired both in academic and professional settings. During my training in the CFGS DAW program, I completed an internship (FCT) at Atos Consulting Canarias from March to May 2023, where I had the opportunity to apply my knowledge in a professional environment. Subsequently, in July 2023, I joined Eviden as a software developer, further enhancing my technical skills and contributing to the development of innovative solutions, thereby strengthening my professional profile in the technology field.",
+        "experiences": {
+            "experience1": {
+                "title": "Internship of the CFGS DAW program",
+                "date": "03/2023 - 05/2023",
+                "company": "Atos Consulting Canarias",
+                "description": "During my training in the CFGS DAW program, I completed an internship (FCT) at Atos Consulting Canarias from March to May 2023, where I worked with technologies and tools such as Spring Boot, Angular, and Bootstrap.",
+                "internal-projects": {
+                    "project1": {
+                        "name": "",
+                        "description": ""
+                    }
+                }
+            },
+            "experience2": {
+                "title": "Software Developer",
+                "date": "07/2023 - Present",
+                "company": "Eviden",
+                "description": "After completing my internship in July 2023, I joined Eviden, where I have continued my training within the company. During this time, I have participated in a project with Orange, specifically collaborating on customer order management. This experience has allowed me to strengthen my technical skills and actively contribute to the development of solutions aimed at optimizing business processes.",
+                "internal-projects": {
+                    "project1": {
+                        "name": "Orange's management system",
+                        "description": "Development of the company's management system to process customer orders, including the creation and integration of new functionalities, performance optimization, and the addition of features aligned with business requirements. Tasks also involved designing and developing SQL scripts to populate databases in various non-production environments, integrating new company products into the system, and resolving application-related incidents."
+                    }
+                }
+            }
         }
     },
     "tools-info": {

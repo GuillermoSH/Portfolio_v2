@@ -12,6 +12,7 @@
     "english": "Inglés",
     "spanish": "Español",
     "explorer search": "Buscar en Inicio",
+    "internal-projects": "Proyectos Internos",
     "close_all_windows": "Cerrar todas las ventanas",
     "projects-info": {
         "title": "Proyectos",
@@ -28,6 +29,36 @@
             "project8": "",
             "project9": "",
             "project10": ""
+        }
+    },
+    "experience-info": {
+        "title": "Experiencia",
+        "introduction": "Poseo experiencia en desarrollo de software adquirida tanto en el ámbito académico como profesional. Durante mi formación en el CFGS DAW, realicé las prácticas de Formación en Centros de Trabajo (FCT) en Atos Consulting Canarias entre marzo y mayo de 2023, donde tuve la oportunidad de aplicar mis conocimientos en el entorno laboral. Posteriormente, en julio de 2023, me incorporé a Eviden como desarrollador de software, fortaleciendo mis habilidades técnicas y participando en el desarrollo de soluciones innovadoras, consolidando así mi perfil profesional en el ámbito tecnológico.",
+        "experiences": {
+            "experience1": {
+                "title": "FCT del CFGS DAW",
+                "date": "03/2023 - 05/2023",
+                "company": "Atos Consulting Canarias",
+                "description": "Durante mi formación en el CFGS DAW, realicé las prácticas de Formación en Centros de Trabajo (FCT) en Atos Consulting Canarias entre marzo y mayo de 2023, viendo como tecnologías y herramientas SpringBoot, Angular y Bootstrap.",
+                "internal-projects": {
+                    "project1": {
+                        "name": "",
+                        "description": ""
+                    }
+                }
+            },
+            "experience2": {
+                "title": "Desarrollador de Software",
+                "date": "07/2023 - Actualidad",
+                "company": "Eviden",
+                "description": "Al finalizar mis prácticas en julio de 2023, me incorporé a Eviden, donde he continuado mi formación dentro de la empresa. Durante este tiempo, he participado en un proyecto con Orange, colaborando específicamente en la gestión de órdenes de clientes. Esta experiencia me ha permitido consolidar mis conocimientos técnicos y contribuir activamente al desarrollo de soluciones orientadas a optimizar los procesos de negocio.",
+                "internal-projects": {
+                    "project1": {
+                        "name": "Sistema de gestión para Orange",
+                        "description": "Desarrollo del sistema de gestión de la empresa para poder procesar las órdenes de los clientes, realizando desarrollos e integraciones de nuevas funcionalidades, optimizando el rendimiento y añadiendo nuevas características alineadas con los requisitos del negocio, diseño y desarrollo de scripts SQL para poblar bases de datos en distintos entornos no productivos, integrando nuevos productos de la empresa en el sistema y resolviendo incidencias relacionadas con la aplicación."
+                    }
+                }
+            }
         }
     },
     "tools-info": {
